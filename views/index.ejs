@@ -6,20 +6,13 @@
         <div class="ui divided items">
             <% notes.forEach(function(note){ %>
             <div class="item">
-                <div class="image">
-                    <img src="<%= note.image %>">
-                </div>
                 <div class="content">
-                    <a class="header" href="/notes/<%= blog._id %>"><%= note.title %></a>
+                    <a class="header" href="/notes/<%= note._id %>"><%= note.title %></a>
                     <div class="metanote">
                         <span><%= note.created.toDateString() %></span>
                     </div>
                     <div class="description">
-                        <p><%= note.body.substring(0, 100) %>...</p>
-                    </div>
-                    <div class="extra">
-                        <a class="ui floated basic green button" href="/notes/<%= note._id %>">Read More <i
-                                class="chevron right icon"></i></a>
+                        <p><%= note.message.substring(0, 100) %>...</p>
                     </div>
                 </div>
             </div>

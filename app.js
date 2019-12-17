@@ -48,6 +48,15 @@ app.get("/notes/new", (req, res) => {
     res.render("new");
 });
 
+// CREATE ROUTE
+app.post("/notes", (req, res) => {
+    req.body.note.body = req.sanitize(req.body.note.body);
+    Note.create(req.body.note, function (err, newNote) {
+        if (err) res.render("new");
+        res.redirect("/notes");
+    });
+});
+
 app.listen(PORT, () => {
     console.log("Server is running on port: " + PORT + "...");
 })
