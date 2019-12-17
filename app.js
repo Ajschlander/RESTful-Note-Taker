@@ -86,6 +86,14 @@ app.put("/notes/:id", (req, res) => {
     });
 });
 
+// DESTROY ROUTE
+app.delete("/notes/:id", (req, res) => {
+    Note.findByIdAndRemove(req.params.id, function (err) {
+        if (err) res.redirect("/notes");
+        res.redirect("/notes");
+    })
+});
+
 app.listen(PORT, () => {
     console.log("Server is running on port: " + PORT + "...");
 })
