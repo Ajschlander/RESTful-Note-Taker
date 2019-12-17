@@ -8,6 +8,7 @@ You can find the live site here:
 ![APP ScreenShot](public/assets/images/homeworkss.png)
 
 # GIF
+![APP GIF](public/assets/gifs/homework.gif)
 
 # Built With
 This app was built with express, ejs, method-override, and mongoose.
