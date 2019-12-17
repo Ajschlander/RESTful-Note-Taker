@@ -2,7 +2,7 @@
 A web application that allows you to create, read, update, and delete notes.
 
 # Deployment
-You can find the live site here: 
+You can find the live site here: https://austin-express-note-taker.herokuapp.com/notes
 
 # ScreenShots
 ![APP ScreenShot](public/assets/images/homeworkss.png)
