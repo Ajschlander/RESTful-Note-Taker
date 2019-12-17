@@ -1,0 +1,18 @@
+<%- include("./partials/header") %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header">New Note</div>
+    <form class="ui form" action="/notes" method="POST">
+        <div class="field">
+            <label>Title</label>
+            <input type="text" name="note[title]" placeholder="title">
+        </div>
+        <div class="field">
+            <label>Message</label>
+            <textarea name="note[body]"></textarea>
+        </div>
+        <input class="ui inverted violet button" type="submit">
+    </form>
+</div>
+
+<%- include("./partials/footer") %>

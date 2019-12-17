@@ -43,6 +43,11 @@ app.get("/notes", (req, res) => {
     });
 });
 
+// NEW ROUTE
+app.get("/notes/new", (req, res) => {
+    res.render("new");
+});
+
 app.listen(PORT, () => {
     console.log("Server is running on port: " + PORT + "...");
 })
