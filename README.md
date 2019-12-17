@@ -10,6 +10,7 @@ You can find the live site here:
 # GIF
 
 # Built With
+This app was built with express, ejs, method-override, and mongoose.
 
 # Author
 Austin Schlander
