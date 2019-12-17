@@ -57,6 +57,16 @@ app.post("/notes", (req, res) => {
     });
 });
 
+// SHOW ROUTE
+app.get("/notes/:id", (req, res) => {
+    Note.findById(req.params.id, function (err, foundNote) {
+        if (err) res.redirect("/notes");
+        res.render("show", {
+            note: foundNote
+        });
+    });
+});
+
 app.listen(PORT, () => {
     console.log("Server is running on port: " + PORT + "...");
 })
