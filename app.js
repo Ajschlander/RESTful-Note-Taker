@@ -20,3 +20,16 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
+
+// Schema for note
+const noteSchema = new mongoose.Schema({
+    title: String,
+    message: String,
+    created: { type: Date, default: Date.now}
+});
+
+const Note = mongoose.model("Note", noteSchema);
+
+app.listen(PORT, () => {
+    console.log("Server is running on port: " + PORT + "...");
+})
