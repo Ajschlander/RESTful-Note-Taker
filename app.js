@@ -8,7 +8,7 @@ const   express             = require("express"),
         PORT                = process.env.PORT || 3000;
 
 // Connect to mongoose server
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/restful_blog_app", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/restful_note_taker_app", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useFindAndModify: false
@@ -29,6 +29,19 @@ const noteSchema = new mongoose.Schema({
 });
 
 const Note = mongoose.model("Note", noteSchema);
+
+// REROUTE TO /notes
+app.get("/", (req, res) => {
+    res.redirect("/notes");
+});
+
+// INDEX ROUTE
+app.get("/notes", (req, res) => {
+    Note.find({}, function (err, notes) {
+        if (err) console.log(err);
+        res.render("index", { notes: notes });
+    });
+});
 
 app.listen(PORT, () => {
     console.log("Server is running on port: " + PORT + "...");

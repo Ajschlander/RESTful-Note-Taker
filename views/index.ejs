@@ -1,0 +1,32 @@
+<%- include("./partials/header") %>
+
+<div class="ui main text container">
+    <div class="ui huge header">RESTful Note Taker App</div>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% notes.forEach(function(note){ %>
+            <div class="item">
+                <div class="image">
+                    <img src="<%= note.image %>">
+                </div>
+                <div class="content">
+                    <a class="header" href="/blogs/<%= blog._id %>"><%= note.title %></a>
+                    <div class="metanote">
+                        <span><%= note.created.toDateString() %></span>
+                    </div>
+                    <div class="description">
+                        <p><%= note.body.substring(0, 100) %>...</p>
+                    </div>
+                    <div class="extra">
+                        <a class="ui floated basic green button" href="/blogs/<%= note._id %>">Read More <i
+                                class="chevron right icon"></i></a>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+
+<%- include("./partials/footer") %>
