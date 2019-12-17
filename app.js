@@ -50,7 +50,7 @@ app.get("/notes/new", (req, res) => {
 
 // CREATE ROUTE
 app.post("/notes", (req, res) => {
-    req.body.note.body = req.sanitize(req.body.note.body);
+    req.body.note.message = req.sanitize(req.body.note.message);
     Note.create(req.body.note, function (err, newNote) {
         if (err) res.render("new");
         res.redirect("/notes");
@@ -64,6 +64,25 @@ app.get("/notes/:id", (req, res) => {
         res.render("show", {
             note: foundNote
         });
+    });
+});
+
+// EDIT ROUTE
+app.get("/notes/:id/edit", (req, res) => {
+    Note.findById(req.params.id, function (err, foundNote) {
+        if (err) res.redirect("/notes");
+        res.render("edit", {
+            note: foundNote
+        });
+    });
+});
+
+// UPDATE ROUTE
+app.put("/notes/:id", (req, res) => {
+    req.body.note.body = req.sanitize(req.body.note.body);
+    Note.findByIdAndUpdate(req.params.id, req.body.note, function (err, updatedNote) {
+        if (err) res.redirect("/notes");
+        res.redirect("/notes/" + req.params.id);
     });
 });
 
